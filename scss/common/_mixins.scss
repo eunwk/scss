@@ -1,0 +1,41 @@
+
+/* ellipsis 말 줄임 처리 */
+@mixin ellipsis($line: 1) {
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word; // 공백 없을때 글자 짤림 방지
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+
+/* before content */
+@mixin btnIcon($where: 'before', $img) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  @if ($where == 'after') {
+    &::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+      background: url($img) no-repeat center;
+    }
+  } @else {
+    &::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+      background: url($img) no-repeat center;
+    }
+  }
+}

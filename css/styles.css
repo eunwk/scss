@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /* 공통 모듈 import */
+/* 
+* px -> rem 변환 1 
+* 사용법:  toRem(12)
+*/
+/* 
+* px -> rem 변환 2 
+* 사용법:  rem(10px 5px)
+*/
+/* ellipsis 말 줄임 처리 */
+/* before content */
 /* Basic Colors */
 /* bg Colors */
 /* Component Colors */
@@ -12,6 +22,18 @@
 /* buttons */
 button {
   border: 1px solid green;
+}
+button.icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+button.icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background: url("/assets/images/icon_edit.svg") no-repeat center;
 }
 
 /* descriptions */

@@ -3,4 +3,10 @@
 /* buttons */
 button {
   border: 1px solid green; 
+  &.icon {
+    @include btnIcon("before", "/assets/images/icon_edit.svg");
+  }
 }
+
+
+
