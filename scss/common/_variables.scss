@@ -1,0 +1,44 @@
+// @use 'functions' as *;
+
+/* Basic Colors */
+$color-primary: #2572ff !default;
+$color-secondary: #f65d00 !default;
+$color-error: #ea002c !default;
+
+/* bg Colors */
+$bg-gray: #f1f1f1 !default;
+
+/* Component Colors */
+$component-border-normal: #ddd;
+$component-border-hover: $color-primary;
+$component-border-active: $color-primary;
+$component-border-disabled: #eee;
+
+/* font Colors */
+$fc-normal: #000 !default;
+$fc-gray: #999 !default;
+$fc-primary: $color-primary;
+$fc-error: $color-error;
+$fc-red: $color-error;
+$fc-disabled: #999;
+
+/* font-weight */
+$fw-normal: 300 !default;
+$fw-regular: 400 !default;
+$fw-bold: 700 !default;
+$fw-bolder: 900 !default;
+
+/* padding */
+$pd-box-global: 20px 16px;
+$pd-hoz: 16px;
+$pd-ver: 20px;
+
+/* margin */
+
+/* border-radius */
+$br-component: 2px;
+$br-box: 4px;
+
+/* font-family */
+$ff-normal: "Helvetica Neue", Roboto, sans-serif;
+$ff-number: "Helvetica Neue", Roboto, sans-serif;

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* 공통 모듈 import */
+/* Basic Colors */
+/* bg Colors */
+/* Component Colors */
+/* font Colors */
+/* font-weight */
+/* padding */
+/* margin */
+/* border-radius */
+/* font-family */
+/* buttons */
+button {
+  border: 1px solid green;
+}
+
+/* descriptions */
+.desc-box {
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 20px 16px;
+  border-radius: 4px;
+}
+
+/* 폼요소 : input, radio, checkbox 등 */
+/* headings */
+h1 {
+  font-size: 20px;
+  color: green;
+}
+
+/* tables */
