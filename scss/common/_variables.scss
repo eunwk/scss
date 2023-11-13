@@ -1,5 +1,11 @@
 // @use 'functions' as *;
 
+/* font-size */
+$fs-base: 16px;
+
+
+
+
 /* Basic Colors */
 $color-primary: #2572ff !default;
 $color-secondary: #f65d00 !default;
@@ -27,6 +33,9 @@ $fw-normal: 300 !default;
 $fw-regular: 400 !default;
 $fw-bold: 700 !default;
 $fw-bolder: 900 !default;
+
+/* page Layout */
+$maxWidth: 1180px;
 
 /* padding */
 $pd-box-global: 20px 16px;

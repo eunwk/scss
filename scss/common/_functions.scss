@@ -10,7 +10,16 @@
 
 
 /* 
-* px -> rem 변환 2 
+* px -> rem 변환 2
+* 사용법:  rem(10)
+*/
+// @function rem($size) {
+//   @return $size / $baseSize#{rem};
+// }
+
+
+/* 
+* px -> rem 변환 3
 * 사용법:  rem(10px 5px)
 */
 $rem-baseline: 16px !default;

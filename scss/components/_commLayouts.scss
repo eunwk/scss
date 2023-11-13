@@ -1,0 +1,27 @@
+@use '../common' as *;
+
+/* 공통 레이아웃  */
+
+@include sm {
+  body {
+    border: 4px solid red;
+  }
+}
+ 
+@include md {
+  body {
+    border: 4px solid green;
+  }
+}
+ 
+@include lg {
+  body {
+    border: 4px solid blue;
+  }
+}
+ 
+@include xl {
+  body {
+    border: 4px solid orange;
+  }
+}

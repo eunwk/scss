@@ -7,4 +7,5 @@
   border: 1px solid $component-border-normal;
   padding: $pd-box-global;
   border-radius: $br-box;
+  @extend %scrollbar;
 }
