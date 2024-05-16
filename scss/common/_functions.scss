@@ -8,7 +8,6 @@
   @return $property;
 }
 
-
 /* 
 * px -> rem 변환 2
 * 사용법:  rem(10)
@@ -23,74 +22,23 @@
 * 사용법:  rem(10px 5px)
 */
 $rem-baseline: 16px !default;
-$rem-fallback: false !default;
-$rem-px-only: false !default;
-
-@function rem-separator($list, $separator: false) {
-  @if $separator == "comma" or $separator == "space" {
-    @return append($list, null, $separator);
-  }
-
-  @if function-exists("list-separator") == true {
-    @return list-separator($list);
-  }
-
-  // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
-  $test-list: ();
-  @each $item in $list {
-    $test-list: append($test-list, $item, space);
-  }
-
-  @return if($test-list == $list, space, comma);
-}
-
-@mixin rem-baseline($zoom: 100%) {
-  font-size: $zoom / 16px * $rem-baseline;
-}
-
-@function rem-convert($to, $values...) {
-  $result: ();
-  $separator: rem-separator($values);
-
-  @each $value in $values {
-    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
-      $result: append($result, $value / 1rem * $rem-baseline + 0px, $separator);
-    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
-      $result: append($result, calc($value / $rem-baseline) + 0rem, $separator);
-    } @else if type-of($value) == "list" {
-      $value-separator: rem-separator($value);
-      $value: rem-convert($to, $value...);
-      $value: rem-separator($value, $value-separator);
-      $result: append($result, $value, $separator);
-    } @else {
-      $result: append($result, $value, $separator);
-    }
-  }
-
-  @return if(length($result) == 1, nth($result, 1), $result);
-}
 
 @function rem($values...) {
-  @if $rem-px-only {
-    @return rem-convert(px, $values...);
-  } @else {
-    @return rem-convert(rem, $values...);
-  }
-}
+  $result: (); // 리턴할 값 (리스트 또는 맵)
 
-@mixin rem($properties, $values...) {
-  @if type-of($properties) == "map" {
-    @each $property in map-keys($properties) {
-      @include rem($property, map-get($properties, $property));
-    }
-  } @else {
-    @each $property in $properties {
-      @if $rem-fallback or $rem-px-only {
-        #{$property}: rem-convert(px, $values...);
-      }
-      @if not $rem-px-only {
-        #{$property}: rem-convert(rem, $values...);
-      }
+  @each $value in $values {
+    // px 단위일 때만 변환
+    @if type-of($value) == "number" and unit($value) == "px" {
+      // 값이 한 개 이고 px 단위 일 때
+      $result: append($result, calc($value / $rem-baseline) + 0rem, space);
+    } @else if type-of($value) == "list" {
+      // 값이 list 일때 반복
+      $value: rem($value...);
+      $result: append($result, $value, space);
+    } @else {
+      // 단위가 없거나, rem 일때는 그대로 출력
+      $result: append($result, $value, space);
     }
   }
+  @return $result;
 }
