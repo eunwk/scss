@@ -51,3 +51,7 @@ $br-box: 4px;
 /* font-family */
 $ff-normal: "Helvetica Neue", Roboto, sans-serif;
 $ff-number: "Helvetica Neue", Roboto, sans-serif;
+
+:export {
+    primary: $color-primary;
+}
