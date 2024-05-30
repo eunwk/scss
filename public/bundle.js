@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/css/styles.css":
-/*!****************************!*\
-  !*** ./src/css/styles.css ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://scss/./src/css/styles.css?");
-
-/***/ }),
-
 /***/ "./src/scss/common/_variables.scss":
 /*!*****************************************!*\
   !*** ./src/scss/common/_variables.scss ***!
@@ -36,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/common/_variables.scss */ \"./src/scss/common/_variables.scss\");\n/* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css/styles.css */ \"./src/css/styles.css\");\n\r\n\r\n\r\n\r\nconsole.log(\"웹팩실행\", _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__.primary, _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__.primary)\n\n//# sourceURL=webpack://scss/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/common/_variables.scss */ \"./src/scss/common/_variables.scss\");\n\r\n\r\n// import './css/styles.css';\r\n\r\nconsole.log(\"웹팩실행\", _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__.primary, _scss_common_variables_scss__WEBPACK_IMPORTED_MODULE_0__.primary)\n\n//# sourceURL=webpack://scss/./src/app.js?");
 
 /***/ })
 
