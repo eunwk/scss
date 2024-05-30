@@ -42,14 +42,13 @@ module.exports = {
       	collapseWhitespace: true
       },
       hash: true,
-      template: './src/index.html'
+      template: './src/index.html' // build 시 해당경로의 파일이 public에 생성됨
     }),
     new MiniCssExtractPlugin({
-      filename: './css/styles.css'
+      filename: './css/styles.css' // build 시 public 에 파일 생성됨. 내용은 없음??
     })
   ],
   devServer: {
-    //contentBase: path.resolve(__dirname, 'public'),
   	port: 9000
   },
 }

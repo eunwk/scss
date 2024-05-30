@@ -2,7 +2,7 @@
   "name": "scss",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -11,19 +11,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
-    "sass-resources-loader": "^2.2.5",
+    "url-loader": "^4.1.1",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  },
-  "dependencies": {
-    "css-loader": "^7.1.2",
-    "file-loader": "^6.2.0",
-    "style-loader": "^4.0.0",
-    "url-loader": "^4.1.1"
   }
 }
