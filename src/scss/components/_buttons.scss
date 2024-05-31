@@ -2,7 +2,9 @@
 
 /* buttons */
 button {
-  border: 1px solid green; 
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
   &.icon {
     @include btnIcon("before", "/assets/images/icon_edit.svg");
   }

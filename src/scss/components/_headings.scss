@@ -10,15 +10,10 @@ $accent-color: red !default;
   $accent-color: lighten($accent-color, 20%);
 }
 
-
-
-
 h1 {
   // font-size: 20px;
   font-size: rem(24px);
   padding: rem(17px 24px 5rem 0);
-  margin: rem(18px, 0, 42rem);
-  margin-bottom: rem(15px);
   border: rem(2px) solid red;
 }
 

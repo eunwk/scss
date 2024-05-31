@@ -1,5 +1,287 @@
 @charset "UTF-8";
 /* 공통 모듈 import */
+/**************************************
+ S: 변수
+/**************************************/
+:root {
+  --vh: 1vh;
+  --scrollWidth: 8px;
+}
+
+/**************************************
+ S: reset
+/**************************************/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Apple SD Gothic Neo", Roboto, "Noto Sans KR", NanumGothic, "Malgun Gothic", sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #222;
+  /* word-break: keep-all;
+     word-wrap: break-word; */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none; /* for mobile 모바일에서  PC버전 보기 시(뷰포트가 변경되었을때) 폰트크기 변경되지 않도록 함*/
+  -webkit-touch-callout: none; /* 모바일 요소 오래 클릭시 불필요한 현상 제거 */
+  -webkit-overflow-scrolling: touch; /* 모바일에서 스크롤 후 손을 떼는 순간 스크롤이 멈출지, 부드럽게 멈출지 지정. auto 가 기본 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+  min-height: calc(var(--vh) * 100);
+}
+
+body.has-modal {
+  height: calc(var(--vh) * 100);
+  /* overflow-y: hidden; // hidden은 움찔 거림이 있어 처리하지 않음. overflow: scroll; 상속받음 pc에서는 scroll 영역이 보이나. 모바일 에서는 보이지 않음.  */
+  position: fixed;
+  /* padding-right: var(--scrollWidth); // 스크롤 너비 */
+}
+
+div, p {
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: bold;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* 영문 설정 */
+.lang-en, :lang(en) {
+  font: 12px/1.5 "Helvetica Neue", Helvetica, Verdana, Arial, Sans-Serief;
+}
+
+hr {
+  height: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+em,
+address,
+i {
+  font-style: normal;
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button, input[type=button] {
+  border: 0;
+  -webkit-appearance: none; /* iOS의 기본 스타일 제거*/
+  -moz-appearance: none;
+       appearance: none;
+  background: transparent;
+  color: #222;
+  vertical-align: middle;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #484747;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #484747;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 0; /* IOS radius 기본 스타일 제거 */
+  overflow-y: auto; /* IE11이하 기본 스타일 제거 */
+}
+
+table {
+  /* table-layout: fixed; */
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+td, th {
+  padding: 0;
+}
+
+legend, .hidden {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/*caption을 position으로 숨기면 사파리에서 caption이 깨져 보이는 경우가 있어 position을 제외하고 숨김.*/
+caption {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+img {
+  max-width: 100%;
+}
+
+img, fieldset {
+  vertical-align: middle;
+  border: none;
+}
+
+input {
+  box-sizing: border-box;
+  vertical-align: top;
+  text-indent: 7px;
+  font-size: 14px;
+  -webkit-appearance: none; /* input,input[type=button]{ -webkit-appearance:none; } iOS의 기본 스타일 제거*/
+  -webkit-border-radius: 0;
+  -moz-appearance: none;
+       appearance: none;
+  border: 1px solid #e65d5d;
+  color: #e65d5d;
+  border-radius: 0;
+  font-family: "맑은 고딕", "Apple SD Gothic Neo", DroidSans, Sans-serif, Helvetica;
+  margin: 0;
+  padding: 0;
+}
+
+input[type=text]::-ms-clear {
+  display: none; /* input의 x 버튼 제거 for IE 또는  input::-ms-clear {display: none;} */
+}
+
+input:-webkit-autofill {
+  /*크롬브라우저에서 자동완성 기능이 작동할 때 input의 배경색이 변하는 현상 제거 */
+  box-shadow: 0 0 0 100px #fff inset;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield; /*웹킷 기본 스타일 덮어쓰기*/
+  -moz-appearance: textfield;
+       appearance: textfield;
+  box-sizing: content-box;
+}
+
+/* input type="number" 기본 스타일 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+}
+
+input:-ms-input-placeholder,
+input::-moz-input-placeholder,
+input::-webkit-input-placeholder,
+input::placeholder {
+  color: #e65d5d;
+}
+
+select::-ms-expand {
+  display: none; /* selectbox 디자인 커스터마이징을 할 경우, select의 드랍버튼(화살표) 제거 for IE11*/
+}
+
+/* :active, :focus 가상클래스 아웃라인 설정 제거 */
+:active, :focus {
+  outline: 0;
+}
+
+/* 텍스트를 선택했을때 bg컬러 및 폰트 컬러 변경 */
+::-moz-selection {
+  background-color: #eee7dd;
+  color: #666;
+}
+::selection,
+::-moz-selection {
+  background-color: #eee7dd;
+  color: #666;
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  border: 4px solid #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: none;
+  height: 5px;
+  background: #fff;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 /* 
 * px -> rem 변환 1 
 * 사용법:  toRem(12)
@@ -13,7 +295,14 @@
 * 사용법:  rem(10px 5px)
 */
 /* ellipsis 말 줄임 처리 */
-/* before icon content */
+/************************************************** 
+  before icon content 
+  사용법
+  @include btnIcon($img: '/images/ico.png'); 또는
+  @include btnIcon($img: '/images/ico.png') {
+      margin-right: 8px;
+  };
+**************************************************/
 /* 스크롤바 디자인 변경 사용:  @extend %scrollbar; */
 .desc-box {
   scrollbar-color: #e6e6e6 #fff; /* firefox */
@@ -51,7 +340,9 @@
 
 /* buttons */
 button {
-  border: 1px solid green;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
 }
 button.icon {
   position: relative;
@@ -67,24 +358,39 @@ button.icon::before {
 }
 
 /* 공통 레이아웃  */
+.breakpoint-mark {
+  position: absolute;
+  right: 10px;
+  bottom: 30px;
+}
+.breakpoint-mark::before {
+  padding: 8px 12px;
+  content: "";
+  color: #fff;
+}
+
 @media (max-width: 768px) {
-  body {
-    border: 4px solid red;
+  .breakpoint-mark::before {
+    content: "sm";
+    background: red;
   }
 }
 @media (max-width: 1024px) {
-  body {
-    border: 4px solid green;
+  .breakpoint-mark::before {
+    content: "md";
+    background: green;
   }
 }
 @media (max-width: 1280px) {
-  body {
-    border: 4px solid blue;
+  .breakpoint-mark::before {
+    content: "lg";
+    background: blue;
   }
 }
 @media (min-width: 1281px) {
-  body {
-    border: 4px solid orange;
+  .breakpoint-mark::before {
+    content: "xl";
+    background: orangered;
   }
 }
 /* descriptions */
@@ -100,8 +406,6 @@ button.icon::before {
 h1 {
   font-size: 1.5rem;
   padding: 1.0625rem 1.5rem 5rem 0;
-  margin: 1.125rem 0 42rem;
-  margin-bottom: 0.9375rem;
   border: 0.125rem solid red;
 }
 
@@ -123,11 +427,11 @@ h1 {
 }
 
 .pulse {
-  animation-name: inline2-uyag7t2;
+  animation-name: inline2-uea1b93;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-@keyframes inline2-uyag7t2 {
+@keyframes inline2-uea1b93 {
   from {
     background-color: yellow;
   }
@@ -137,13 +441,10 @@ h1 {
 }
 
 /* tables */
-.desc-box {
-  background: #f1f1f1;
-  color: red;
+.box {
+  color: blue;
 }
 
-button {
-  background: #fff;
-  color: #333;
-  border: 1px solid #ddd;
+h1::before {
+  content: "../images/icon_edit.svg";
 }

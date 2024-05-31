@@ -1,5 +1,6 @@
 {
   "liveSassCompile.settings.generateMap": false, // 만일 .map 파일 생성을 끄고 싶다면
+  "liveSassCompile.settings.showOutputWindowOn": "Debug",
   "liveSassCompile.settings.formats": [
   {
       "format": "expanded",
@@ -7,5 +8,6 @@
       "savePath": "~/../css"
   }
   ],
-  "liveServer.settings.donotShowInfoMsg": true
+ "liveServer.settings.donotShowInfoMsg": true,
+
 }

@@ -2,11 +2,10 @@
   "name": "scss",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack serve"
+    "build": "webpack --watch",
+    "dev": "webpack serve --hot"
   },
   "author": "",
   "license": "ISC",

@@ -2,26 +2,40 @@
 
 /* 공통 레이아웃  */
 
+.breakpoint-mark {
+  position: absolute;
+  right: 10px;
+  bottom: 30px;
+  &::before {
+    padding: 8px 12px;
+    content: '';
+    color: #fff;
+  }
+}
 @include sm {
-  body {
-    border: 4px solid red;
+  .breakpoint-mark::before {
+    content: 'sm';
+    background: red;
   }
 }
  
 @include md {
-  body {
-    border: 4px solid green;
+  .breakpoint-mark::before {
+    content: 'md';
+    background: green;
   }
 }
  
 @include lg {
-  body {
-    border: 4px solid blue;
+  .breakpoint-mark::before {
+    content: 'lg';
+    background: blue;
   }
 }
  
 @include xl {
-  body {
-    border: 4px solid orange;
+  .breakpoint-mark::before {
+    content: 'xl';
+    background: orangered;
   }
 }

@@ -16,11 +16,19 @@
 }
 
 
-/* before icon content */
-@mixin btnIcon($where: 'before', $img) {
+/************************************************** 
+  before icon content 
+  사용법
+  @include btnIcon($img: '/images/ico.png'); 또는
+  @include btnIcon($img: '/images/ico.png') {
+      margin-right: 8px;
+  };
+**************************************************/
+
+@mixin btnIcon($where: 'before', $img: null) {
   position: relative;
   display: inline-flex;
-  align-items: center;
+  align-items: center;  
   @if ($where == 'after') {
     &::after {
       content: '';
@@ -28,6 +36,7 @@
       height: 20px;
       margin-left: 4px;
       background: url($img) no-repeat center;
+      @content;
     }
   } @else {
     &::before {
@@ -36,9 +45,12 @@
       height: 20px;
       margin-right: 4px;
       background: url($img) no-repeat center;
+      @content;
     }
   }
 }
+
+
 
 /* 스크롤바 디자인 변경 사용:  @extend %scrollbar; */
 %scrollbar {
@@ -59,7 +71,6 @@
 }
 
 /* 미디어쿼리 */
-
 $breakpoint-xs: 360px;
 $breakpoint-sm: 768px;
 $breakpoint-md: 1024px;
