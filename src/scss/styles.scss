@@ -1,4 +1,17 @@
 @use 'components/index';
+@use 'common' as *;
 
 // components 폴더 안의 scss 파일들을 styles.css 로 합치게 된다.  
 // 이 파일은 직접적으로 컴파일 되어야 하기 떄문에 _언더바를 붙이지 않는다.
+
+
+.desc-box {
+    background: $bg-gray;
+    color: red;
+}
+
+button {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}

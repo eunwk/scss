@@ -3,9 +3,6 @@
 /* font-size */
 $fs-base: 16px;
 
-
-
-
 /* Basic Colors */
 $color-primary: #2572ff !default;
 $color-secondary: #f65d00 !default;
@@ -51,3 +48,8 @@ $br-box: 4px;
 /* font-family */
 $ff-normal: "Helvetica Neue", Roboto, sans-serif;
 $ff-number: "Helvetica Neue", Roboto, sans-serif;
+
+:export {
+    primary: $color-primary;
+    secondary: $color-secondary; 
+}

@@ -44,6 +44,11 @@
 /* margin */
 /* border-radius */
 /* font-family */
+:export {
+  primary: #2572ff;
+  secondary: #f65d00;
+}
+
 /* buttons */
 button {
   border: 1px solid green;
@@ -118,11 +123,11 @@ h1 {
 }
 
 .pulse {
-  animation-name: inline2-u4vxfo2;
+  animation-name: inline2-uyag7t2;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-@keyframes inline2-u4vxfo2 {
+@keyframes inline2-uyag7t2 {
   from {
     background-color: yellow;
   }
@@ -132,3 +137,13 @@ h1 {
 }
 
 /* tables */
+.desc-box {
+  background: #f1f1f1;
+  color: red;
+}
+
+button {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
