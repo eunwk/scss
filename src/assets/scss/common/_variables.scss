@@ -53,3 +53,19 @@ $ff-number: "Helvetica Neue", Roboto, sans-serif;
     primary: $color-primary;
     secondary: $color-secondary; 
 }
+
+
+/* css 변수와 변수값 공유*/
+:root {
+    --primary: #{$color-primary};
+    --secondary: #{$color-secondary};
+}
+
+.primary {
+    color: var(--primary);
+    background: var(--secondary);
+}
+
+.primary2 {
+    color:$color-primary;
+}

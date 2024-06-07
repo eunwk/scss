@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCSS 적용</title>
 
-  <!-- <link rel="stylesheet" type="text/css" href="./css/styles.css" /> css 는 app.js 에서 import됨. -->
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/styles.css" /> npm run dev 상태에서는 css 는 app.js 에서 import됨. -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet"> -->
   <script type="text/javascript" src="bundle.js"></script>
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>SCSS</h1>
+  <h1 class="font1">SCSS 폴더구조1</h1>
+
   <h2>폴더구조1</h2>
   <div class="desc-box">
     /css/<br />
@@ -19,10 +26,10 @@
     /scss/styles.scss<br />
   </div>
 
-  <div class="test"><h1>SCSS</h1></div>
+  <div class="test ico change-primary"><h1>SCSS</h1></div>
 
   <h2>settings.json</h2>
-  <div class="desc-box">
+  <div class="desc-box primary">
     <code>
     <pre>
     {
@@ -40,9 +47,17 @@
 
   </div>
 
-
+  <div class="left"></div>
+  <div class="right"></div>
+  <div class="up"></div>
+  <div class="down"></div>
   <button>버튼</button>
   <button class="icon">버튼</button>
   <div class="breakpoint-mark">21</div>
+
+<br>
+  <div class="primary3 global-primary">primary</div>
+  <div class="global-primary2">primary</div>
+  <div class="make-animation"></div>
 </body>
 </html>

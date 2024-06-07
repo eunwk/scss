@@ -1,5 +1,28 @@
 @charset "UTF-8";
-/* 공통 모듈 import */
+@font-face {
+  font-family: "Noto Sans KR";
+  src: local("NotoSansKR-Regular"), url(../fonts/noto-sans-kr-v27-korean-regular.woff2) format("font-woff2"), url(../fonts/noto-sans-kr-v27-korean-regular.woff) format("font-woff");
+  font-weight: 400;
+  font-style: normal;
+}
+/*기본 bold*/
+@font-face {
+  font-family: "Noto Sans KR";
+  src: local("NotoSansKR-Medium"), url(../fonts/noto-sans-kr-v27-korean-500.woff2) format("font-woff2"), url(../fonts/noto-sans-kr-v27-korean-500.woff) format("font-woff");
+  font-weight: 500;
+  font-style: normal;
+}
+/*bold */
+@font-face {
+  font-family: "Noto Sans KR";
+  src: local("NotoSansKR-Bold"), url(../fonts/noto-sans-kr-v27-korean-700.woff2) format("font-woff2"), url(../fonts/noto-sans-kr-v27-korean-700.woff) format("font-woff");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 /**************************************
  S: 변수
 /**************************************/
@@ -24,7 +47,6 @@
 
 body {
   font-size: 16px;
-  font-family: "Apple SD Gothic Neo", Roboto, "Noto Sans KR", NanumGothic, "Malgun Gothic", sans-serif;
   line-height: 1.4;
   font-weight: 400;
   color: #222;
@@ -56,12 +78,12 @@ div, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: inherit;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 b, strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 ins {
@@ -294,14 +316,44 @@ select::-ms-expand {
 * px -> rem 변환 3
 * 사용법:  rem(10px 5px)
 */
-/* ellipsis 말 줄임 처리 */
 /************************************************** 
-  before icon content 
+  @mixin ellipsis : 말 줄임 처리
+  사용법
+  @include ellipsis(3); 
+**************************************************/
+/************************************************** 
+  @mixin btnIcon : before icon content 
   사용법
   @include btnIcon($img: '/images/ico.png'); 또는
   @include btnIcon($img: '/images/ico.png') {
       margin-right: 8px;
   };
+**************************************************/
+/************************************************** 
+  @mixin avatar : square, circle
+  사용법
+  @include avatar(100px, $circle: false);
+  @include avatar(100px, $circle: true);
+**************************************************/
+/************************************************** 
+  @mixin triangle : 삼각형
+  사용법
+  @include triangle(10px, red, right);
+  @include triangle(8px, #999, right);
+**************************************************/
+/************************************************** 
+  @mixin make-animation : 애니메이션 속성/값과, @keyframes 생성 @keyframes는 선택자 밖에 생성됨
+  사용법
+  @include inline-animation(10s linear forwards) {
+    from { background-color: yellow }
+    to { background-color: red }
+  }
+
+**************************************************/
+/************************************************** 
+  @mixin prefix : 벤더프리픽스 생성
+  사용법
+  @include prefix(filter, grayscale(50%), moz webkit);
 **************************************************/
 /* 스크롤바 디자인 변경 사용:  @extend %scrollbar; */
 .desc-box {
@@ -338,25 +390,27 @@ select::-ms-expand {
   secondary: #f65d00;
 }
 
+/* css 변수와 변수값 공유*/
+:root {
+  --primary: #2572ff;
+  --secondary: #f65d00;
+}
+
+.primary {
+  color: var(--primary);
+  background: var(--secondary);
+}
+
+.primary2 {
+  color: #2572ff;
+}
+
 /* buttons */
 button {
   background: #fff;
   color: #333;
   border: 1px solid #ddd;
 }
-button.icon {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-button.icon::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  margin-right: 4px;
-  background: url("/assets/images/icon_edit.svg") no-repeat center;
-}
-
 /* 공통 레이아웃  */
 .breakpoint-mark {
   position: absolute;
@@ -427,11 +481,11 @@ h1 {
 }
 
 .pulse {
-  animation-name: inline2-uea1b93;
+  animation-name: inline2-uuq6cr5;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-@keyframes inline2-uea1b93 {
+@keyframes inline2-uuq6cr5 {
   from {
     background-color: yellow;
   }
@@ -445,6 +499,136 @@ h1 {
   color: blue;
 }
 
-h1::before {
-  content: "../images/icon_edit.svg";
+/* mixin  avatar 사용예 */
+.avatar-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.avatar-square {
+  width: 100px;
+  height: 100px;
+}
+
+/* mixin  삼각형 불릿 사용예 */
+.up {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  border-right-color: black;
+}
+
+.left {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  border-right-color: black;
+}
+
+.right {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  border-left-color: black;
+}
+
+.down {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  border-top-color: black;
+}
+
+:root {
+  --font-family-sans-serif: "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto;
+  --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas;
+}
+
+.selector {
+  width: calc(700px / 2);
+  width: 350px;
+}
+
+[dir=rtl] .alert {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.alert2 {
+  color: red;
+}
+:not(.alert2) {
+  opacity: 1;
+}
+
+.accordion__copy {
+  color: green;
+}
+.accordion__copy--open {
+  display: block;
+}
+
+h1 {
+  color: green;
+  background: orange;
+}
+
+p {
+  color: green;
+}
+
+.ico {
+  background: url(../images/icon_edit.svg) no-repeat center;
+}
+
+.change-primary {
+  color: #2572ff;
+}
+
+.primary3 {
+  color: black;
+}
+
+.global-primary {
+  color: red;
+}
+
+.global-primary2 {
+  color: red;
+}
+
+/* 애니메이션, 해당이름으로 된 keyframes 생성  */
+.make-animation {
+  width: 100px;
+  height: 100px;
+  animation: inline-uuq6crm 10s linear forwards;
+}
+@keyframes inline-uuq6crm {
+  from {
+    background-color: yellow;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+.button-primary {
+  background-color: blue;
+}
+
+.button-secondary {
+  background-color: green;
+}
+
+.button-fallback {
+  background-color: #000;
 }

@@ -1,0 +1,147 @@
+@use "sass:meta";
+@use "sass:list";
+@use 'common' as *;
+@use 'components/index';
+
+
+// components 폴더 안의 scss 파일들을 styles.css 로 합치게 된다.  
+// 이 파일은 직접적으로 컴파일 되어야 하기 떄문에 _언더바를 붙이지 않는다.
+$var1: 1px solid blue;
+
+.box {
+    color: blue; 
+}
+
+
+/* mixin  avatar 사용예 */
+.avatar-circle {
+    @include avatar(100px, $circle: true);
+}
+
+.avatar-square {
+    @include avatar(100px, $circle: false);
+}
+
+
+/* mixin  삼각형 불릿 사용예 */
+.up {
+    @include triangle(10px, black, left);
+}
+
+.left {
+    @include triangle(10px, black, left);
+}
+
+.right {
+    @include triangle(10px, black, right);
+}
+.down {
+    @include triangle(10px, black, down);
+}
+
+// @debug list.join(10px, 20px); // 10px 20px
+
+
+$font-family-sans-serif: "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto;
+$font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas;
+
+:root {
+  --font-family-sans-serif: #{meta.inspect($font-family-sans-serif)};
+  --font-family-monospace: #{meta.inspect($font-family-monospace)};
+}
+
+
+$width: 700;
+
+.selector {
+    width: calc(#{$width}px / 2)  ;
+    width: calc($width * 1px / 2);
+}
+
+.alert {
+    [dir=rtl] & {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+}
+
+.alert2 {
+    :not(&) {
+      opacity: 1;
+    }
+    color: red;
+  }
+  .accordion {
+    &__copy {
+        color: green;
+      &--open {
+        display: block;
+      }
+    }
+  }
+  $color-primary: blue !default;
+
+  $titleColor: red;
+  $bool: false;
+  h1 {
+    $titleColor: green !global;
+    color: $titleColor;
+    $bool: true !global;
+    background: if($bool, orange, purple)
+  }
+  p {
+    color: $titleColor;
+  }
+
+  .ico {
+    background: url(../images/icon_edit.svg) no-repeat center;
+  }
+  
+  $char: black;
+
+  .change-primary {
+    color:  $color-primary;
+  }
+
+  .primary3 {
+    color:  $char;
+  }
+
+  .global-primary {
+    $color-primary: red !global;
+    $char: red !global;
+    color:  $char;
+  }
+
+  .global-primary2 {
+    color:  $char;
+  }
+
+  /* 애니메이션, 해당이름으로 된 keyframes 생성  */
+  .make-animation {
+    width: 100px;
+    height: 100px;
+    @include make-animation(10s linear forwards) {
+      from { background-color: yellow }
+      to { background-color: red }
+    }
+    //  animation: inline-uuq6brg 10s linear forwards;
+  }
+
+  @function get-color($color, $default-color: null) {
+    // @return $color or $default-color or #000;
+     @return if($color, $color, if($default-color, $default-color, #000));
+  }
+
+  
+  .button-primary {
+    background-color: get-color(blue);
+  }
+  
+  .button-secondary {
+    background-color: get-color(null, green);
+  }
+  
+  .button-fallback {
+    background-color: get-color(null);
+  }

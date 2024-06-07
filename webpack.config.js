@@ -26,14 +26,15 @@ module.exports = {
         }, 'sass-loader']
       },
       {
-        test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|otf)?$/,
         use: [{
           loader: 'file-loader',
           options: {
-          	name: '[name].[ext]?[hash]'
+          	name: '[name].[ext]?[hash]',
           }
         }]
-      }
+      },
+     
   	]
   },
   plugins: [
@@ -45,7 +46,7 @@ module.exports = {
       template: './src/index.html' // build 시 해당경로의 파일이 public에 생성됨
     }),
     new MiniCssExtractPlugin({
-      filename: './css/styles.css' // build 시 public 에 파일 생성됨. 내용은 없음??
+      filename: './css/styles.css' // 루트 폴더 기준으로 빌드 되는 경로 localhost/css/styles.css
     })
   ],
   devServer: {
