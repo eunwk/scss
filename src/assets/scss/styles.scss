@@ -1,5 +1,6 @@
 @use "sass:meta";
 @use "sass:list";
+@use "sass:map";
 @use 'common' as *;
 @use 'components/index';
 
@@ -145,3 +146,16 @@ $width: 700;
   .button-fallback {
     background-color: get-color(null);
   }
+
+  $fonts: (
+    "Helvetica": (
+      "weights": (
+        "lightest": 100,
+        "light": 300
+      )
+    )
+  );
+
+  $heavy-weights: ("medium": 500, "bold": 700);
+
+  @debug map.merge($fonts, "Helvetica", "weights", $heavy-weights);

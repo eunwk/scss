@@ -481,11 +481,11 @@ h1 {
 }
 
 .pulse {
-  animation-name: inline2-uuq6cr5;
+  animation-name: inline2-uihdypa;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-@keyframes inline2-uuq6cr5 {
+@keyframes inline2-uihdypa {
   from {
     background-color: yellow;
   }
@@ -610,9 +610,9 @@ p {
 .make-animation {
   width: 100px;
   height: 100px;
-  animation: inline-uuq6crm 10s linear forwards;
+  animation: inline-uihdyq2 10s linear forwards;
 }
-@keyframes inline-uuq6crm {
+@keyframes inline-uihdyq2 {
   from {
     background-color: yellow;
   }
