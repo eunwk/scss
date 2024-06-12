@@ -20,6 +20,19 @@
   }
 }
 
+@keyframes aniLazyload {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }  
+}
+
+@mixin lazyload($duration: 1s) {
+  animation: aniLazyload $duration forwards;
+}
+
 
 /************************************************** 
   @mixin btnIcon : before icon content 

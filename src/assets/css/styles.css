@@ -321,6 +321,14 @@ select::-ms-expand {
   사용법
   @include ellipsis(3); 
 **************************************************/
+@keyframes aniLazyload {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /************************************************** 
   @mixin btnIcon : before icon content 
   사용법
@@ -481,11 +489,11 @@ h1 {
 }
 
 .pulse {
-  animation-name: inline2-uihdypa;
+  animation-name: inline2-ut3trdy;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
-@keyframes inline2-uihdypa {
+@keyframes inline2-ut3trdy {
   from {
     background-color: yellow;
   }
@@ -610,9 +618,9 @@ p {
 .make-animation {
   width: 100px;
   height: 100px;
-  animation: inline-uihdyq2 10s linear forwards;
+  animation: inline-ut3tre4 10s linear forwards;
 }
-@keyframes inline-uihdyq2 {
+@keyframes inline-ut3tre4 {
   from {
     background-color: yellow;
   }
@@ -631,4 +639,8 @@ p {
 
 .button-fallback {
   background-color: #000;
+}
+
+.lazyload {
+  animation: aniLazyload 3s forwards;
 }

@@ -159,3 +159,8 @@ $width: 700;
   $heavy-weights: ("medium": 500, "bold": 700);
 
   @debug map.merge($fonts, "Helvetica", "weights", $heavy-weights);
+
+
+  .lazyload {
+    @include lazyload(3s);
+  }
